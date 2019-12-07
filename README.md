@@ -3,8 +3,8 @@
 Many thanks to the [battlefieldbadcompany2mase project](https://sourceforge.net/projects/battlefieldbadcompany2mase/) by [flyer8472](https://sourceforge.net/u/flyer8472/profile/) for the great project, which enabled me to build these Docker-Images in the first place.
 
 This projects contains two docker-images:
-- The [master-server](#Master-Server) which is needed by the client to handle the user-account and manages the server-list
-- The [game-server](#Game-Server) which the clients can connect to for gaming
+- The [master-server](#Master-Server) [![Docker Repository on Quay](https://quay.io/repository/docker-gameserver/bfbc2-master-server/status "Docker Repository on Quay")](https://quay.io/repository/docker-gameserver/bfbc2-master-server) which is needed by the client to handle the user-account and manages the server-list
+- The [game-server](#Game-Server) [![Docker Repository on Quay](https://quay.io/repository/docker-gameserver/bfbc2-server/status "Docker Repository on Quay")](https://quay.io/repository/docker-gameserver/bfbc2-server) which the clients can connect to for gaming
 
 With this both images you are able to run your own Battlefield Bad Company 2 LAN-Server.
 
