@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+
+  bfbc2-master-server:
+    image: jkuettner/bfbc2-master-server
+    # build: ./master-server
+    network_mode: "host"
+    volumes:
+      - "./database:/home/bfbc2/database"
+    #   - "./custom-config.ini:/home/bfbc2/config.ini"
+
+  bfbc2-server:
+    image: jkuettner/bfbc2-server
+    # build: ./game-server
+    network_mode: "host"
+    environment:
+      MASTER_SERVER: "127.0.0.1"
+      SERVER_TYPE: "rush"
+      SERVER_NAME: "Rush LAN-Server"
+      SERVER_PORT: 19567
+      SERVER_ADMIN_PORT: 48888
+      SERVER_ADMIN_PASSWORD: "langaming"
+      SERVER_MAX_PLAYERS: 8

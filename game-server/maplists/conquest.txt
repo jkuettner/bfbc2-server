@@ -1,0 +1,13 @@
+CONQUEST
+levels/nam_mp_007cq
+levels/mp_001
+levels/mp_003
+levels/mp_005
+levels/mp_006cq
+levels/mp_007
+levels/mp_008cq
+levels/mp_009cq
+levels/mp_012cq
+levels/bc1_oasis_cq
+levels/bc1_harvest_day_cq
+levels/mp_sp_005cq

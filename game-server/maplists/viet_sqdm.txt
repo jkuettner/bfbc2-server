@@ -1,0 +1,5 @@
+SQDM
+levels/nam_mp_002sdm
+levels/nam_mp_003sdm
+levels/nam_mp_005sdm
+levels/nam_mp_006sdm

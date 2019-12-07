@@ -1,0 +1,31 @@
+<InstallerConfig>
+  <Config>
+    <LatestVersionUrl Url="http://easo.ea.com/easo/editorial/BF/2010/BFBC2/config/PC/version"/>
+    <PatchUrl Url="http://static.cdn.ea.com/dice/u/f/bfbc2/Patch"/>
+    <CompleteInstallUrl Url="http://static.cdn.ea.com/dice/u/f/bfbc2/Patch"/>
+    <PatchInstallPath Path="tempPatch"/>
+    <PatchedFilesPath Path="patched"/>
+    <PatchInfoFilename Path="patchinfo.xml"/>
+  </Config>
+
+  <RegistryPath Path="Software\Electronic Arts\Battlefield Bad Company 2"/>
+  <RelativeInstallPath Path="Electronic Arts\Battlefield Bad Company 2"/>
+  <SupportedOSVersions>XP,Vista,Server2003,Windows7</SupportedOSVersions>
+  
+  <GUID>{3AC8457C-0385-4bea-A959-E095F05D6D67}</GUID>
+  <UninstallCommand>uninstaller.exe</UninstallCommand>
+  <ProgramName>Battlefield Bad Company 2</ProgramName>
+  <PublisherName>EA Digital Illusions</PublisherName>
+  <RequiredDirectXVersion>9</RequiredDirectXVersion>
+
+  <GameExecutable>BFBC2Game.exe</GameExecutable>
+  <GameParameters/>
+
+  <NeedAccountUrl Url=""/>
+  <ProgramGroup Path="Electronic Arts\Battlefield Bad Company 2"/>
+  <GameUrl Url=""/>
+  <ConfigUrl Url="http://easo.ea.com/easo/editorial/BF/2010/BFBC2/config/PC/InstallerConfig.xml"/>
+  <InstallCompleteUrl Url="http://static.cdn.ea.com/dice/u/f/bfbc2/install-complete"/>
+  <PostInstallCommands>
+  </PostInstallCommands>
+</InstallerConfig>

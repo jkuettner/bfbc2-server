@@ -1,0 +1,21 @@
+INFORMATION
+Hello, you just connected to the Master Server Emulator for Battlefield Bad Company 2, MASE:BC2
+The main purpose of this emulator is to make LAN games possible in BF:BC2 but if you just connected from somewhere else I hope you will enjoy your stay nonetheless ;-)
+
+VERSION
+Beta: v0.9
+Date: 5.1.2015
+
+CREDITS
+	Developers:
+- Triver
+
+	Packet Logging and Server stuff:
+- Triver
+- Rodney (after Alpha 0.8)
+- bcool (up to Alpha 0.8)
+
+	Special Thanks:
+- Domo and Freaky123 (for sharing the Server Files and the v10.0 source code)
+- Aluigi (for the tools that made it possible to view and record the BF:BC2 network traffic)
+- DICE (for making the game)

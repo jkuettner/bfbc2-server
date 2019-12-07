@@ -1,0 +1,5 @@
+RUSH
+levels/nam_mp_002r
+levels/nam_mp_003r
+levels/nam_mp_005r
+levels/nam_mp_006r
