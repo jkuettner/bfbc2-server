@@ -24,12 +24,12 @@ alternatively you can run the docker-images manually:
 # master-server
 docker run \
     -d --net=host \
-    docker-gameserver/bfbc2-master-server
+    quay.io/docker-gameserver/bfbc2-master-server
 
 # game-server
 docker run \
     -d --net=host \
-    docker-gameserver/bfbc2-server
+    quay.io/docker-gameserver/bfbc2-server
 ```
 
 ## Connecting to your LAN-Server
@@ -52,7 +52,7 @@ mkdir ./database
 docker run \
     -d --net=host \
     -v "./database:/home/bfbc2/database" \
-    docker-gameserver/bfbc2-master-server
+    quay.io/docker-gameserver/bfbc2-master-server
 ```
 
 You can overwrite the [config.ini](./master-server/config.ini) with your own by adding a custom `config.ini` as volume:
@@ -62,7 +62,7 @@ docker run \
     --rm -ti --host=net \
     -v ./database:/home/bfbc2/database \
     -v ./config.ini:/home/bfbc2/config.ini \
-     docker-gameserver/bfbc2-master-server
+    quay.io/docker-gameserver/bfbc2-master-server
 ```
 
 or edit the [docker-compose.yaml](./docker-compose.yaml) and uncomment the `- "./custom-config.ini:/home/bfbc2/config.ini"` line.
@@ -97,7 +97,7 @@ The default [maplists](./maplists) can be overwritten by mounting your own mapli
 docker run \
     --rm -ti \
     -v "./custom_rushmaplist.txt:/home/bfbc2/server/maplists/rush.txt" \
-    docker-gameserver/bfbc2-server
+    quay.io/docker-gameserver/bfbc2-server
 ```
 
 # Build

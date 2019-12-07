@@ -3,7 +3,7 @@ version: "3"
 services:
 
   bfbc2-master-server:
-    image: docker-gameserver/bfbc2-master-server
+    image: quay.io/docker-gameserver/bfbc2-master-server
     # build: ./master-server
     network_mode: "host"
     volumes:
@@ -11,7 +11,7 @@ services:
     #   - "./custom-config.ini:/home/bfbc2/config.ini"
 
   bfbc2-server:
-    image: docker-gameserver/bfbc2-server
+    image: quay.io/docker-gameserver/bfbc2-server
     # build: ./game-server
     network_mode: "host"
     environment:
