@@ -91,7 +91,7 @@ or edit the [docker-compose.yaml](./docker-compose.yaml) and uncomment the `- ".
 
 ## Maplists
 
-The default [maplists](./maplists) can be overwritten by mounting your own maplist to `/home/bfbc2/server/maplists/<gamemode>.txt`
+The default [maplists](./game-server/maplists) can be overwritten by mounting your own maplist to `/home/bfbc2/server/maplists/<gamemode>.txt`
 
 ```sh
 docker run \
