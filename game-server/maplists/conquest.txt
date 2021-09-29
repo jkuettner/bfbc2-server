@@ -1,13 +1,13 @@
 CONQUEST
-levels/nam_mp_007cq
-levels/mp_001
-levels/mp_003
-levels/mp_005
-levels/mp_006cq
-levels/mp_007
-levels/mp_008cq
-levels/mp_009cq
-levels/mp_012cq
-levels/bc1_oasis_cq
-levels/bc1_harvest_day_cq
-levels/mp_sp_005cq
+levels/nam_mp_007cq         # Operation Hastings
+levels/mp_001               # Panama Canal
+levels/mp_003               # Laguna Alta
+levels/mp_005               # Atacama Desert
+levels/mp_006cq             # Arica Harbour
+levels/mp_007               # White Pass
+levels/mp_008cq             # Nelson Bay
+levels/mp_009cq             # Laguna Presa
+levels/mp_012cq             # Port Valdez
+levels/bc1_oasis_cq         # Oasis
+levels/bc1_harvest_day_cq   # Harvest Day
+levels/mp_sp_005cq          # Heavy Metal

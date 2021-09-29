@@ -1,5 +1,6 @@
 RUSH
-levels/nam_mp_002r
-levels/nam_mp_003r
-levels/nam_mp_005r
-levels/nam_mp_006r
+levels/nam_mp_002r # Vantage Point
+levels/nam_mp_003r # Hill 137
+levels/nam_mp_005r # Cai Son Temple
+levels/nam_mp_006r # Phu Bai Valley
+levels/nam_mp_007r # Operation Hastings
