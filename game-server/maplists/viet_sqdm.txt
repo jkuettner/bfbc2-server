@@ -1,5 +1,6 @@
 SQDM
-levels/nam_mp_002sdm
-levels/nam_mp_003sdm
-levels/nam_mp_005sdm
-levels/nam_mp_006sdm
+levels/nam_mp_002sdm # Vantage Point
+levels/nam_mp_003sdm # Hill 137
+levels/nam_mp_005sdm # Cai Son Temple
+levels/nam_mp_006sdm # Phu Bai Valley
+levels/nam_mp_007sdm # Operation Hastings

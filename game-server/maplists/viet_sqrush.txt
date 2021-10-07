@@ -1,5 +1,6 @@
 SQRUSH
-levels/nam_mp_002sr
-levels/nam_mp_003sr 
-levels/nam_mp_005sr 
-levels/nam_mp_006sr
+levels/nam_mp_002sr # Vantage Point
+levels/nam_mp_003sr # Hill 137 
+levels/nam_mp_005sr # Cai Son Temple 
+levels/nam_mp_006sr # Phu Bai Valley
+levels/nam_mp_007sr # Operation Hastings

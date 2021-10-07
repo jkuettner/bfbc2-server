@@ -1,5 +1,6 @@
 CONQUEST
-levels/nam_mp_002cq
-levels/nam_mp_003cq
-levels/nam_mp_005cq
-levels/nam_mp_006cq
+levels/nam_mp_002cq # Vantage Point
+levels/nam_mp_003cq # Hill 137
+levels/nam_mp_005cq # Cai Son Temple
+levels/nam_mp_006cq # Phu Bai Valley
+levels/nam_mp_007cq # Operation Hastings

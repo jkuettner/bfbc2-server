@@ -16,13 +16,13 @@ The easiest way to start your own BFBC2 LAN-Server is to use [docker-compose](ht
 docker-compose up -d
 ```
 
-this command will start up both servers with default configurations.
+this command will start up the master-server and two game-servers (ruah and sqdm) with default configurations.
 
 alternatively you can run the docker-images manually:
 
 ```sh
 # master-server
-docker run \
+docker run -t \
     -d --net=host \
     quay.io/docker-gameserver/bfbc2-master-server
 
@@ -49,7 +49,7 @@ To enable persistence you have to create a local database folder and mount it to
 
 ```sh
 mkdir ./database
-docker run \
+docker run -t \
     -d --net=host \
     -v "./database:/home/bfbc2/database" \
     quay.io/docker-gameserver/bfbc2-master-server
@@ -99,6 +99,10 @@ docker run \
     -v "./custom_rushmaplist.txt:/home/bfbc2/server/maplists/rush.txt" \
     quay.io/docker-gameserver/bfbc2-server
 ```
+
+## Multiple Game-Server
+
+make sure that you have unique `SERVER_PORT` and `SERVER_ADMIN_PORT` env variables set per server instance.
 
 # Build
 
