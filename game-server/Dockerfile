@@ -23,8 +23,8 @@ USER bfbc2
 ENV WINEARCH=win32 \
     WINEPREFIX="/home/bfbc2/.wine32"
 
-RUN wineboot \
-    && xvfb-run winetricks -q \
+RUN xvfb-run -e /dev/stdout -a -s "-nolisten tcp -screen 0 1280x1024x24" wineboot \
+    && xvfb-run -e /dev/stdout -a -s "-nolisten tcp -screen 0 1280x1024x24" winetricks -q \
         dinput8 \
         vcrun2005 \
         vcrun2008 \

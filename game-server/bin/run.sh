@@ -8,7 +8,7 @@ cat <<EOF >bfbc2.ini
 host=${MASTER_SERVER}
 connect_to_retail=0
 executable_type=auto
-show_console=0
+show_console=1
 
 [client]
 reroute_http=0
@@ -56,16 +56,15 @@ function start_bfbc2_server() {
     write_config "${SERVER_PATH}"
 
     echo "Starting ${SERVER_MODE} server ..."
+    rm -f "${SERVER_PATH}maplist.txt"
     ln -s "/home/bfbc2/server/maplists/${MAPLIST_PATH}" "${SERVER_PATH}maplist.txt"
 
-    sleep 1
-
-    xvfb-run wine "Frost.Game.Main_Win32_Final.exe" \
+    xvfb-run -e /dev/stdout -a -s "-nolisten tcp -screen 0 1280x1024x24" wine "Frost.Game.Main_Win32_Final.exe" \
         -serverInstancePath "${SERVER_PATH}" \
         -mapPack2Enabled 1 \
         -timeStampLogNames \
         -region OC \
-        -heartBeatInterval 20000 
+        -heartBeatInterval 20000
 }
 
 shopt -s nocasematch
