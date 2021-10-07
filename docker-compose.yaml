@@ -24,7 +24,7 @@ services:
       SERVER_PORT: 19567
       SERVER_ADMIN_PORT: 48888
       SERVER_ADMIN_PASSWORD: "langaming"
-      SERVER_MAX_PLAYERS: 8
+      SERVER_MAX_PLAYERS: 32
 
   sqdm-server:
     image: quay.io/docker-gameserver/bfbc2-server
@@ -38,5 +38,5 @@ services:
       SERVER_PORT: 19568
       SERVER_ADMIN_PORT: 48889
       SERVER_ADMIN_PASSWORD: "langaming"
-      SERVER_MAX_PLAYERS: 8
+      SERVER_MAX_PLAYERS: 16
 
