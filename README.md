@@ -123,4 +123,6 @@ I am grateful for further tips
 
 ## Administration
 
-The remote administration via the `SERVER_ADMIN_PORT` / `SERVER_ADMIN_PASSWORD` is currently untested. Feel free to add further instructions to the readme ;)
+Unfortunately, there are not many rcon-clients available (for bfbc2) anymore. However, on Windows I could manage the servers with [BC2 Guardian](https://g4g.pl/bc2guardian) without any problems.
+
+I would prefer a web-based and self-hosted solution though, as I could bake this into the image if necessary. However, I have not been able to find anything like this, but would be very grateful for any hints!
