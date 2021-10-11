@@ -1,4 +1,4 @@
-FROM ubuntu:bionic as makefile
+FROM ubuntu:20.04 as makefile
 
 ENV LIB_BOOST_DIR="/usr/include/boost/"
 ENV LIB_OPENSSL_DIR="/usr/include/openssl/"
@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y \
 
 ######################
 
-FROM alpine:3.6 as build
+FROM alpine:3.8 as build
 
 ENV CXXFLAGS="-std=gnu++11"
 
@@ -45,7 +45,7 @@ RUN make release
 
 ######################
 
-FROM alpine:3.6
+FROM alpine:3.13
 
 COPY --from=build /bfbc2/src/bin/Release/mase_bc2 /home/bfbc2/mase_bc2
 ADD ./config.ini /home/bfbc2/.default_config.ini
