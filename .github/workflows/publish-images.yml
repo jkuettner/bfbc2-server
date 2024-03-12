@@ -8,7 +8,7 @@ name: Docker publish
 on:
   push:
     branches: [ "master" ]
-    # Publish semver tags as releases.
+    tags: [ 'v*.*.*' ]
   pull_request:
     branches: [ "master" ]
 
@@ -22,6 +22,14 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - context: ./master-server
+            image: bfbc2-master-server
+          - context: ./game-server
+            image: bfbc2-server
     permissions:
       contents: read
       packages: write
@@ -63,25 +71,15 @@ jobs:
         id: meta
         uses: docker/metadata-action@96383f45573cb7f253c731d3b3ab81c87ef81934 # v5.0.0
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ matrix.image }}
 
-      - name: Build and push master-server
-        id: build-and-push-master-server-dev
+      - name: Build and push images
+        id: build-and-push-images-dev
         uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
         with:
-          context: ./master-server
+          context: ${{ matrix.context }}
           push: ${{ github.event_name != 'pull_request' }}
-          tags: master-latest
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-      - name: Build and push game-server-dev
-        id: build-and-push-game-server
-        uses: docker/build-push-action@0565240e2d4ab88bba5387d719585280857ece09 # v5.0.0
-        with:
-          context: ./game-server
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
@@ -90,17 +88,8 @@ jobs:
         if: ${{ github.event_name != 'pull_request' }}
         env:
           # https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
-          TAGS: master-latest
-          DIGEST: ${{ steps.build-and-push-master-server-dev.outputs.digest }}
-        # This step uses the identity token to provision an ephemeral certificate
-        # against the sigstore community Fulcio instance.
-        run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
-      - name: Sign the published game-server image
-        if: ${{ github.event_name != 'pull_request' }}
-        env:
-          # https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
-          TAGS: latest
-          DIGEST: ${{ steps.build-and-push-game-server-dev.outputs.digest }}
+          TAGS: ${{ steps.meta.outputs.tags }}
+          DIGEST: ${{ steps.build-and-push-images-dev.outputs.digest }}
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
         run: echo "${TAGS}" | xargs -I {} cosign sign --yes {}@${DIGEST}
