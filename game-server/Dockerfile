@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:bionic
 
 RUN dpkg --add-architecture i386 \
     && apt-get update && apt-get install --no-install-recommends -y \
@@ -9,7 +9,6 @@ RUN dpkg --add-architecture i386 \
         ca-certificates \
         unrar \
         winbind \
-        cabextract \
     && apt-get clean \
     && useradd -m bfbc2
 
