@@ -3,8 +3,8 @@
 Many thanks to the [battlefieldbadcompany2mase project](https://sourceforge.net/projects/battlefieldbadcompany2mase/) by [flyer8472](https://sourceforge.net/u/flyer8472/profile/) for the great project, which enabled me to build these Docker-Images in the first place.
 
 This projects contains two docker-images:
-- The [master-server](#Master-Server) [![Docker Repository on Quay](https://quay.io/repository/docker-gameserver/bfbc2-master-server/status "Docker Repository on Quay")](https://quay.io/repository/docker-gameserver/bfbc2-master-server) which is needed by the client to handle the user-account and manages the server-list
-- The [game-server](#Game-Server) [![Docker Repository on Quay](https://quay.io/repository/docker-gameserver/bfbc2-server/status "Docker Repository on Quay")](https://quay.io/repository/docker-gameserver/bfbc2-server) which the clients can connect to for gaming
+- The [master-server](#Master-Server) which is needed by the client to handle the user-account and manages the server-list
+- The [game-server](#Game-Server) which the clients can connect to for gaming
 
 With this both images you are able to run your own Battlefield Bad Company 2 LAN-Server.
 
@@ -24,12 +24,12 @@ alternatively you can run the docker-images manually:
 # master-server
 docker run -t \
     -d --net=host \
-    quay.io/docker-gameserver/bfbc2-master-server
+    ghcr.io/jkuettner/bfbc2-master-server:master
 
 # game-server
 docker run \
     -d --net=host \
-    quay.io/docker-gameserver/bfbc2-server
+    ghcr.io/jkuettner/bfbc2-server:master
 ```
 
 ## Connecting to your LAN-Server
@@ -52,7 +52,7 @@ mkdir ./database
 docker run -t \
     -d --net=host \
     -v "./database:/home/bfbc2/database" \
-    quay.io/docker-gameserver/bfbc2-master-server
+    ghcr.io/jkuettner/bfbc2-master-server:master
 ```
 
 You can overwrite the [config.ini](./master-server/config.ini) with your own by adding a custom `config.ini` as volume:
@@ -62,7 +62,7 @@ docker run \
     --rm -ti --host=net \
     -v ./database:/home/bfbc2/database \
     -v ./config.ini:/home/bfbc2/config.ini \
-    quay.io/docker-gameserver/bfbc2-master-server
+    ghcr.io/jkuettner/bfbc2-server:master
 ```
 
 or edit the [docker-compose.yaml](./docker-compose.yaml) and uncomment the `- "./custom-config.ini:/home/bfbc2/config.ini"` line.
@@ -97,7 +97,7 @@ The default [maplists](./game-server/maplists) can be overwritten by mounting yo
 docker run \
     --rm -ti \
     -v "./custom_rushmaplist.txt:/home/bfbc2/server/maplists/rush.txt" \
-    quay.io/docker-gameserver/bfbc2-server
+    ghcr.io/jkuettner/bfbc2-server:master
 ```
 
 ## Multiple Game-Server

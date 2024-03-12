@@ -3,7 +3,7 @@ version: "3"
 services:
 
   master-server:
-    image: quay.io/docker-gameserver/bfbc2-master-server
+    image: ghcr.io/jkuettner/bfbc2-master-server:master
     #build: ./master-server
     restart: always
     network_mode: "host"
@@ -13,10 +13,12 @@ services:
     #   - "./custom-config.ini:/home/bfbc2/config.ini"
 
   rush-server:
-    image: quay.io/docker-gameserver/bfbc2-server
+    image: ghcr.io/jkuettner/bfbc2-server:master
     #build: ./game-server
     restart: always
     network_mode: "host"
+    depends_on:
+      - master-server
     environment:
       MASTER_SERVER: "127.0.0.1"
       SERVER_TYPE: "rush"
@@ -27,10 +29,12 @@ services:
       SERVER_MAX_PLAYERS: 32
 
   sqdm-server:
-    image: quay.io/docker-gameserver/bfbc2-server
+    image: ghcr.io/jkuettner/bfbc2-server:master
     #build: ./game-server
     restart: always
     network_mode: "host"
+    depends_on:
+      - master-server
     environment:
       MASTER_SERVER: "127.0.0.1"
       SERVER_TYPE: "sqdm"
