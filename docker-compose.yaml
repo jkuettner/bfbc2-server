@@ -3,7 +3,7 @@ version: "3"
 services:
 
   master-server:
-    image: ghcr.io/jkuettner/bfbc2-master-server:master
+    image: ghcr.io/jkuettner/bfbc2-master-server
     #build: ./master-server
     restart: always
     network_mode: "host"
@@ -13,7 +13,7 @@ services:
     #   - "./custom-config.ini:/home/bfbc2/config.ini"
 
   rush-server:
-    image: ghcr.io/jkuettner/bfbc2-server:master
+    image: ghcr.io/jkuettner/bfbc2-server
     #build: ./game-server
     restart: always
     network_mode: "host"
@@ -29,7 +29,7 @@ services:
       SERVER_MAX_PLAYERS: 32
 
   sqdm-server:
-    image: ghcr.io/jkuettner/bfbc2-server:master
+    image: ghcr.io/jkuettner/bfbc2-server
     #build: ./game-server
     restart: always
     network_mode: "host"
