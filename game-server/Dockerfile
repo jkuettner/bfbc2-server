@@ -12,18 +12,13 @@ RUN dpkg --add-architecture i386 \
     && apt-get clean \
     && useradd -m bfbc2
 
-ADD bin/run.sh /home/bfbc2/server/run.sh
-ADD maplists/ /home/bfbc2/server/maplists/
-
-RUN chown bfbc2:bfbc2 -R /home/bfbc2 \
-    && chmod +x /home/bfbc2/server/run.sh
-
 USER bfbc2
 
 ENV WINEARCH=win32 \
     WINEPREFIX="/home/bfbc2/.wine32"
 
-RUN xvfb-run -e /dev/stdout -a -s "-nolisten tcp -screen 0 1280x1024x24" wineboot \
+RUN mkdir -p /home/bfbc2/server/ \
+    && xvfb-run -e /dev/stdout -a -s "-nolisten tcp -screen 0 1280x1024x24" wineboot \
     && xvfb-run -e /dev/stdout -a -s "-nolisten tcp -screen 0 1280x1024x24" winetricks -q \
         dinput8 \
         vcrun2005 \
@@ -58,6 +53,16 @@ ENV MASTER_SERVER="127.0.0.1" \
     SERVER_CROSSHAIR="true" \
     SERVER_SPOTTING="true" \
     SERVER_MINIMAP_SPOTTING="true"
+
+USER root
+
+ADD bin/run.sh /home/bfbc2/server/run.sh
+ADD maplists/ /home/bfbc2/server/maplists/
+
+RUN chown bfbc2:bfbc2 -R /home/bfbc2 \
+    && chmod +x /home/bfbc2/server/run.sh
+
+USER bfbc2
 
 WORKDIR /home/bfbc2/server
 

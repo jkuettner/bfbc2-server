@@ -1,5 +1,10 @@
 #!/bin/bash
 
+export GAMEMODEID="BC2"
+if [[ "${SERVER_TYPE}" == viet* ]]; then
+  GAMEMODEID="VIETNAM"
+fi
+
 function write_config() {
     local CONFIG_PATH="${1}"
 
@@ -31,9 +36,9 @@ PunkBuster=false
 Ranked=true
 NumGameClientSlots=${SERVER_MAX_PLAYERS}
 
-RevisionLevel = 8
-RevisionKey = 7C0A303E-F4D2-985E-763D-E7C41B1E06A3
-GameModID = BC2
+RevisionLevel=8
+RevisionKey=7C0A303E-F4D2-985E-763D-E7C41B1E06A3
+GameModID=${GAMEMODEID}
 EOF
 
 cat <<EOF >./Startup.txt
