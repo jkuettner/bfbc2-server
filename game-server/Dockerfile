@@ -9,6 +9,7 @@ RUN dpkg --add-architecture i386 \
         ca-certificates \
         unrar \
         winbind \
+        cabextract \
     && apt-get clean \
     && useradd -m bfbc2
 
