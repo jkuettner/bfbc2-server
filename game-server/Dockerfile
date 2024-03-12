@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:22.04
 
 RUN dpkg --add-architecture i386 \
     && apt-get update && apt-get install --no-install-recommends -y \
@@ -24,7 +24,7 @@ RUN mkdir -p /home/bfbc2/server/ \
         vcrun2005 \
         vcrun2008 \
         vcrun2010 \
-    && wget -qO /tmp/Bc2emu_V09.rar "https://sourceforge.net/projects/battlefieldbadcompany2mase/files/Bc2emu_V09.rar/download#" \
+    && wget -qO /tmp/Bc2emu_V09.rar "https://downloads.sourceforge.net/project/battlefieldbadcompany2mase/Bc2emu_V09.rar" \
     && unrar x /tmp/Bc2emu_V09.rar \
         -x'Bc2emu/!DOCS' \
         -x'Bc2emu/Crack - Copy to client root' \

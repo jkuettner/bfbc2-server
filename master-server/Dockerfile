@@ -1,4 +1,4 @@
-FROM ubuntu:20.04 as makefile
+FROM ubuntu:22.04 as makefile
 
 ENV LIB_BOOST_DIR="/usr/include/boost/"
 ENV LIB_OPENSSL_DIR="/usr/include/openssl/"
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
         cbp2make \
         wget \
     && apt-get clean \
-    && wget -qO /tmp/src_v09.rar "https://iweb.dl.sourceforge.net/project/battlefieldbadcompany2mase/Source%20V0.9/src_v09.rar" \
+    && wget -qO /tmp/src_v09.rar "https://downloads.sourceforge.net/project/battlefieldbadcompany2mase/Source%20V0.9/src_v09.rar" \
     && unrar x /tmp/src_v09.rar \
     && cd ./src \
         && sed -i -e 's@$(BOOST_1_54_DIR)@'${LIB_BOOST_DIR}'@g' mase_bc2.vcxproj mase_bc2.cbp \
