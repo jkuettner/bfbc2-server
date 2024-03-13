@@ -1,4 +1,4 @@
-# Docker-Images for Battlefield: Bad Company 2 LAN-Server
+# Docker-Images for Battlefield: Bad Company 2 / Vietnam LAN-Server
 
 Many thanks to the [battlefieldbadcompany2mase project](https://sourceforge.net/projects/battlefieldbadcompany2mase/) by [flyer8472](https://sourceforge.net/u/flyer8472/profile/) for the great project, which enabled me to build these Docker-Images in the first place.
 
