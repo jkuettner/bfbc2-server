@@ -1,6 +1,9 @@
-FROM ubuntu:bionic
+FROM debian:bookworm
+
+ENV DEBIAN_FRONTEND=NONINTERACTIVE
 
 RUN dpkg --add-architecture i386 \
+    && sed -i 's/^Components: main$/& contrib non-free non-free-firmware/' /etc/apt/sources.list.d/debian.sources \
     && apt-get update && apt-get install --no-install-recommends -y \
         xvfb \
         wine32 \
@@ -9,6 +12,9 @@ RUN dpkg --add-architecture i386 \
         ca-certificates \
         unrar \
         winbind \
+        xauth \
+        cabextract \
+        wget \
     && apt-get clean \
     && useradd -m bfbc2
 

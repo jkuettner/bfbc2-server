@@ -1,11 +1,12 @@
-FROM ubuntu:22.04 as makefile
+FROM debian:bookworm as makefile
 
 ENV LIB_BOOST_DIR="/usr/include/boost/"
 ENV LIB_OPENSSL_DIR="/usr/include/openssl/"
 ENV LIB_PATH="/usr/lib"
 
 WORKDIR /bfbc2
-RUN apt-get update && apt-get install -y \
+RUN sed -i 's/^Components: main$/& contrib non-free non-free-firmware/' /etc/apt/sources.list.d/debian.sources \
+    && apt-get update && apt-get install -y \
         unrar \
         cbp2make \
         wget \
