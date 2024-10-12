@@ -35,7 +35,7 @@ docker run \
 ## Connecting to your LAN-Server
 
 To be able to connect to your bfbc2-server you have to add the two files `bfbc2.ini` and `dinput8.dll` to your installed game-root-folder. This files are included in the `Bc2emu_V09.rar` ([download](https://sourceforge.net/projects/battlefieldbadcompany2mase/files/Bc2emu_V09.rar/download)) inside of the `"Crack - Copy to client root"`-directory.
-Edit the line `host=127.0.0.1` in the `bfbc2.ini` and fill in the ip of your server.
+Edit the line `host=127.0.0.1` in the `bfbc2.ini` and fill in the ip of your master server.
 
 In the game simply create a new account with dummy-data (the account data are saved in plain-text in the database-directory mounted to the master-server...)
 
