@@ -1,46 +1,73 @@
 version: "3"
 
-services:
+# Define own macvlan networks to give each container an own address
+#
+# networks:
+#   default:
+#     name: 01-default
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 172.16.0.0/24 # docker default network
+#   lan:
+#     name: 100-lan
+#     driver: macvlan
+#     driver_opts:
+#       parent: eth0
+#     ipam:
+#       driver: default
+#       config:
+#         - subnet: 192.168.0.0/24 # your lan ip-range
+#           gateway: 192.168.0.1   # your router ip
 
+services:
   master-server:
     image: ghcr.io/jkuettner/bfbc2-master-server
     #build: ./master-server
     restart: always
-    network_mode: "host"
+    network_mode: "host" # comment if you use the macvlan method
     tty: true # for real-time output
     volumes:
       - "./database:/home/bfbc2/database"
     #   - "./custom-config.ini:/home/bfbc2/config.ini"
+    # networks:
+    #   lan:
+    #     ipv4_address: 192.168.0.20
 
   rush-server:
     image: ghcr.io/jkuettner/bfbc2-server
     #build: ./game-server
     restart: always
-    network_mode: "host"
+    network_mode: "host" # comment if you use the macvlan variant
     depends_on:
       - master-server
     environment:
-      MASTER_SERVER: "127.0.0.1"
+      MASTER_SERVER: "127.0.0.1" # or 192.168.0.20 if using macvlan method
       SERVER_TYPE: "rush"
       SERVER_NAME: "Rush LAN-Server"
       SERVER_PORT: 19567
       SERVER_ADMIN_PORT: 48888
       SERVER_ADMIN_PASSWORD: "langaming"
       SERVER_MAX_PLAYERS: 32
+    # networks:
+    #   lan:
+    #     ipv4_address: 192.168.0.21
 
   sqdm-server:
     image: ghcr.io/jkuettner/bfbc2-server
     #build: ./game-server
     restart: always
-    network_mode: "host"
+    network_mode: "host" # comment if you use the macvlan variant
     depends_on:
       - master-server
     environment:
-      MASTER_SERVER: "127.0.0.1"
+      MASTER_SERVER: "127.0.0.1" # or 192.168.0.20 if using macvlan method
       SERVER_TYPE: "sqdm"
       SERVER_NAME: "SQDM LAN-Server"
       SERVER_PORT: 19568
       SERVER_ADMIN_PORT: 48889
       SERVER_ADMIN_PASSWORD: "langaming"
       SERVER_MAX_PLAYERS: 16
-
+    # networks:
+    #   lan:
+    #     ipv4_address: 192.168.0.22

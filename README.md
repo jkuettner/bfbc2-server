@@ -117,9 +117,13 @@ docker build -t bfbc2-server ./game-server
 
 ## host-networking
 
-Currently the docker-containers are startet in host-networking mode. Until now I was not able to run the containers with simple port-mappings. Neither the registration on the master server can be completed, nor can the game servers be found.
+Currently the docker-containers are started in host-networking mode. Until now I was not able to run the containers with simple port-mappings. Neither the registration on the master server can be completed, nor can the game servers be found.
 
-I am grateful for further tips
+However, a workaround exists using macvlan networking. In the [docker-compose.yaml](./docker-compose.yaml), you'll find commented-out examples for macvlan configuration. This approach allows running the containers without host networking mode.
+
+To use macvlan:
+1. Uncomment the macvlan sections in docker-compose.yaml (and comment the `network_mode`-part)
+2. Adjust the network settings to match your environment
 
 ## Administration
 
