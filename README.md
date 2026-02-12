@@ -77,7 +77,7 @@ or edit the [docker-compose.yaml](./docker-compose.yaml) and uncomment the `- ".
 | `SERVER_TYPE`| the game mode of the server. One of `rush`, `conq`, `sqdm`, `sqrush`, `vietconq`, `vietrush`, `vietsqrush` or `vietsqdm` | `rush` |
 | `SERVER_NAME`| the name of the server listed in the serverlist | `BFBC2 Server` |
 | `SERVER_PORT`| the port of the server | `19567` |
-| `SERVER_ADMIN_PORT`| the port for the remote admin-tool | `48888` |
+| `SERVER_ADMIN_PORT`| the port for the remote admin-tool | `0.0.0.0:48888` |
 | `SERVER_ADMIN_PASSWORD`| the admin password | `langaming` |
 | `SERVER_MAX_PLAYERS`| the maximum amount of connectable players | `16` |
 | `SERVER_HARDCORE`| set the hardcore mode | `false` |
@@ -127,6 +127,7 @@ To use macvlan:
 
 ## Administration
 
-Unfortunately, there are not many rcon-clients available (for bfbc2) anymore. However, on Windows I could manage the servers with [BC2 Guardian](https://g4g.pl/bc2guardian) without any problems.
+It is possible to manage the server via RCON. The following tools are known to work (many thanks to @The-May):
 
-I would prefer a web-based and self-hosted solution though, as I could bake this into the image if necessary. However, I have not been able to find anything like this, but would be very grateful for any hints!
+- **Procon** – a Windows client. Download from [Procon client](https://myrcon.net/files/file/29-procon-client/)
+- **OpenRCON** – an open‑source cross‑platform client. Available at [OpenRCON GitHub](https://github.com/OpenRcon/OpenRcon)
