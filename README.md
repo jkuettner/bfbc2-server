@@ -131,3 +131,4 @@ It is possible to manage the server via RCON. The following tools are known to w
 
 - **Procon** – a Windows client. Download from [Procon client](https://myrcon.net/files/file/29-procon-client/)
 - **OpenRCON** – an open‑source cross‑platform client. Available at [OpenRCON GitHub](https://github.com/OpenRcon/OpenRcon)
+- **BFBC2-Webcon** - a simple php Webapp which can be deployed alongside this stack. Available at [bfbc2-webcon GitHub](https://github.com/The-May/bfbc2-webcon)
